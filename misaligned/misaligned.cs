@@ -19,7 +19,7 @@ namespace MisalignedSpace
       }
       return majorIndex * mainorIndex;
     }
-    static void Main(string[] args)
+    static virtual void Main(string[] args)
     {
       int result = printColorMap();
       Debug.Assert(result == 25);
