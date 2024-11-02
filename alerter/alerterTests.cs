@@ -56,9 +56,7 @@ namespace AlerterSpace.Tests
     [Test]
     public void TestAlertInCelcius_FailureSimulation()
     {
-      // Override the networkAlertStub to simulate failure
-      //Alerter.networkAlertStub = (celcius) => 500;
-
+     
       using (var sw = new StringWriter())
       {
         Console.SetOut(sw);
@@ -68,8 +66,6 @@ namespace AlerterSpace.Tests
         Assert.Equals(1, Alerter.alertFailureCount);
       }
 
-      // Restore the original stub if needed
-      //Alerter.networkAlertStub = (celcius) => 200;
     }
 
     [Test]
