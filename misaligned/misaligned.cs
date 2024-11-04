@@ -21,9 +21,8 @@ namespace MisalignedSpace
     }
     static virtual void Main(string[] args)
     {
-      int result = printColorMap();
-      Debug.Assert(result == 25);
-      Console.WriteLine("All is well (maybe!)");
+      ColorMappingValidator.ValidateColorMapOutput();
+       Console.WriteLine("Tests failed due to a potential bug!");
     }
   }
 }
