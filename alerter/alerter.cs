@@ -23,11 +23,27 @@ namespace AlerterSpace {
             }
         }
 
+         static void RunAlerterTests()
+        {
+            alertFailureCount = 0; // Reset count before running tests
+            alertInCelsius(400.5f); 
+            alertInCelsius(303.6f); 
+            if (alertFailureCount > 0)
+            {
+                Console.WriteLine("Test Passed: {0} alerts failed as expected.", alertFailureCount);
+            }
+            else
+            {
+                Console.WriteLine("Test Failed: Expected alerts to fail, but got {0}.", alertFailureCount);
+            }
+        }
+
         static virtual void Main(string[] args) {
             alertInCelcius(400.5f);
             alertInCelcius(303.6f);
             Console.WriteLine("{0} alerts failed.", alertFailureCount);
             Console.WriteLine("All is well (maybe!)\n");
+            RunAlerterTests();
         }
     }
 }
