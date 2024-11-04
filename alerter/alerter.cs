@@ -28,13 +28,13 @@ namespace AlerterSpace {
             alertFailureCount = 0; // Reset count before running tests
             alertInCelsius(400.5f); 
             alertInCelsius(303.6f); 
-            if (alertFailureCount > 0)
+            if (alertFailureCount == 0)
             {
-                Console.WriteLine("Test Passed: {0} alerts failed as expected.", alertFailureCount);
+                Console.WriteLine("Test Failed: Expected alerts to fail, but got {0}.", alertFailureCount);
             }
             else
             {
-                Console.WriteLine("Test Failed: Expected alerts to fail, but got {0}.", alertFailureCount);
+                Console.WriteLine("Test Passed: {0} alerts failed as expected.", alertFailureCount);
             }
         }
 
