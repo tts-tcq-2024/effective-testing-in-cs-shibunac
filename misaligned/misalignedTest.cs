@@ -2,11 +2,10 @@ using System.Diagnostics;
 
 namespace MisalignedSpace
 {
-    class ExcpectedStrings
+    class ColorMappingValidator
     {
-        Misaligned TestPrint = new Misaligned();
         // Validate color mappings
-        static string[] expectedLines = {
+        static string[] expectedCombination = {
                     "0 | White | Blue",
                     "1 | White | Orange",
                     "2 | White | Green",
@@ -34,7 +33,7 @@ namespace MisalignedSpace
                     "24 | Violet | Slate"
                 };
 
-        public static void TestPrintColorMapOutput()
+        public static void ValidateColorMapOutput()
         {
             // Redirect Console output to a string
             using (var sw = new StringWriter())
@@ -47,12 +46,12 @@ namespace MisalignedSpace
                 Debug.Assert(result == 25, "Expected 25 lines of output.");
 
                 // Split the output into lines
-                var actualLines = output.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                var actualCombination = output.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
-                // Validate each expected line against actual output
-                for (int i = 0; i < expectedLines.Length; i++)
+                // Validate each expected result against actual output
+                for (int i = 0; i < expectedCombination.Length; i++)
                 {
-                    Debug.Assert(actualLines[i] == expectedLines[i], $"Expected '{expectedLines[i]}', but got '{actualLines[i]}'.");
+                    Debug.Assert(actualCombination[i] == expectedCombination[i], $"Expected '{expectedCombination[i]}', but got '{actualCombination[i]}'.");
                 }
             }
         }
